@@ -3057,7 +3057,7 @@ input, select, textarea {
 		}
 
 		.spotlight:before {
-			background-image: url("images/overlay.png");
+			background-image: url("../../images/travelpic.jpg");
 			content: '';
 			display: block;
 			height: 100%;
@@ -3198,10 +3198,12 @@ input, select, textarea {
 
 	.wrapper {
 		padding: 6em 0 4em 0;
+
 	}
 
 		.wrapper.style2 {
 			background: #e44c65;
+
 		}
 
 			.wrapper.style2 input[type="text"]:focus,
