@@ -3057,7 +3057,8 @@ input, select, textarea {
 		}
 
 		.spotlight:before {
-			background-image: url("../../images/travelpic.jpg");
+
+			background-attachment: fixed;
 			content: '';
 			display: block;
 			height: 100%;
