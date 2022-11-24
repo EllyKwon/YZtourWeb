@@ -6,7 +6,7 @@
 -->
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>YZ Tour : 로그인</title>
+    <title>YZ Tour 로그인</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -24,8 +24,8 @@
                     <li>
                         <a href="#">예약하기</a>
                         <ul>
-                            <li><a href="local.html">국내패키지상품</a></li>
-                            <li><a href="overseas.html">해외패키지상품</a></li>
+                            <li><a href="left-sidebar.html">국내패키지상품</a></li>
+                            <li><a href="right-sidebar.html">해외패키지상품</a></li>
                             <li>
                                 <a href="#">Submenu</a>
                                 <ul>
@@ -37,19 +37,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="mypage.html">마이페이지</a>
-                        <ul>
-                            <li><a href="#">내가입정보</a></li>
-                            <li><a href="#">내가 쓴글</a></li>
-                            <li><a href="#">예약확인 / 취소</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="notice.html">고객게시판</a>
-                    </li>
-                    <li><a href="login.html" class="button primary small">로그인</a></li>
-                    <li><a href="join.html" class="button primary small">회원가입</a></li>
+                    <li><a href="elements.html">마이메뉴</a></li>
+                    <li><a href="login.html" class="button primary">로그인</a></li>
+                    <li><a href="join.html" class="button primary">회원가입</a></li>
                 </ul>
             </nav>
         </header>
@@ -57,24 +47,20 @@
         <!-- Main -->
         <div id="main" class="wrapper style1">
             <div class="container" align="center">
-                <header class="major">
-                    <h2 style="margin:0">로그인</h2>
-                </header>
-                            <form action="index.html" method="post">
-                                <input type="text" name="id" size="2" placeholder="아이디를 입력하세요" maxlength="10" style="width:40%" required>
-                                <input type="password" name="pwd" size="2" placeholder="비밀번호 8자리를 입력하세요" maxlength="8" style="width:40%" required><br/>
-
-                                <div class="col-6 col-12-medium">
-                                    <input type="checkbox" id="human" name="human" checked>
-                                    <label for="human" >아이디 저장</label>　　　　　　　　　　　　　　　　　　　
-                                </div>
-                                <input class="button primary small" type="submit" value="로그인" >
-                                <a href="index.html" class="button small">　취소　</a><br/>
-
-                            </form>
+                <header>
+                    <h2>로그인</h2>
+                    <section>
+                        <form action="index.html" method="post">
+                            <input type="text" name="id" size="5" placeholder="아이디를 입력하세요" maxlength="10" >
+                            <input type="password" name="pwd" size="5" placeholder="비밀번호 8자리를 입력하세요" maxlength="8" ><br/>
+                            <input class="button primary" type="submit" value="로그인" >
+                            <a href="index.html" class="button">취소</a><br/><br/>
                             <a href="">아이디 찾기</a> ㅣ
                             <a href="">비밀번호 찾기</a> ㅣ
                             <a href="">회원가입</a>
+                        </form>
+                    </section>
+                </header>
                     <!--<div class="col-4 col-12-medium">
                          Sidebar
                             <section id="sidebar">
@@ -100,6 +86,7 @@
                                 </section>
                             </section>
                     </div>-->
+
             </div>
         </div>
 
@@ -114,12 +101,7 @@
                 <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
-                <li>(주) YZ Tour</li>
-                <li>대표자 : 권예지</li>
-                <li>☎ TEL 010-7129-3630</li><br/><br/>
-                <li>본사주소 : 서울시 강남대로 1000억빌딩 YZ투어</li>
-                <li>사업자등록번호 : 000-81-00000</li><br/><br/>
-                <li>Copyright&copy; YZ TOUR service Inc. All rights reserved.</li>
+                <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </footer>
     </div>
