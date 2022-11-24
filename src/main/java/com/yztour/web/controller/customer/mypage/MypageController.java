@@ -1,12 +1,12 @@
-package com.yztour.web.controller.customer.mymenu;
+package com.yztour.web.controller.customer.mypage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mymenu/")
-public class MymenuController {
+@RequestMapping("/mypage/")
+public class MypageController {
 
     @GetMapping("member")
     public String member(){

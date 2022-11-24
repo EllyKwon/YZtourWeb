@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>YZ Tour : 떠나고싶다면? 당신의 여행파트너, YZ Tour와 함께</title>
+		<title>YZ Tour : 글쓰기</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -46,7 +46,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="notice.html">고객게시판</a>
+								<a href="board.html">고객게시판</a>
 							</li>
 							<li><a href="login.html" class="button primary small">로그인</a></li>
 							<li><a href="join.html" class="button primary small">회원가입</a></li>
@@ -58,42 +58,47 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2 style="margin:0">마이페이지</h2>
-							<!--<p>Ipsum dolor feugiat aliquam tempus sed magna lorem consequat accumsan</p>-->
+							<h2 style="margin:0">게시글작성</h2>
 						</header>
-
-							<!--Sidebar -->
-							<div class="row gtr-150">
-								<div class="col-4 col-12-medium">
-									<section id="sidebar">
-                                   		<section>
-											<a href="mymenu.html">내가입정보</a>
-									   </section>
-									   <hr/>
-									   <section>
-										   <a href="mylist.html">내가 쓴글</a>
-									   </section>
-										<hr/>
-										<section>
-											<a href="reserve.html">예약확인 / 취소</a>
-										</section>
-								   </section>
-								</div>
-
 								<!-- Contents -->
 								<div class="col-8 col-12-medium imp-medium">
-									<h4>　　기본가입정보</h4>
-									<blockquote>
-										<pre><code>
-											내정보섹션
-										</code></pre>
-									</blockquote>
-										<div style="float:right" >
-										<a href="member.html" >회원정보수정</a> ㅣ
-										<a href="member.html">회원탈퇴</a>
-										</div>
+									<blockquote style="padding:0"><h4>　고객게시판 > 게시글작성</h4></blockquote><br/><br/>
+											<section>
+												<form method="post" action="#">
+													<div class="row gtr-uniform gtr-50" style="margin-left:20">
+														<div class="col-12" style="width:25%">
+															<select name="category" id="category">
+																<option value="">- 카테고리 선택-</option>
+																<option value="1">예약확인/취소</option>
+																<option value="1">마이페이지</option>
+																<option value="1">기타문의</option>
+															</select>
+														</div>
+														<div class="col-6 col-12-xsmall" style="width:10%">
+															<input type="text" name="writerId" id="writerId" value="" placeholder="작성자" />
+														</div>
+														<div class="col-6 col-12-xsmall" style="width:15%">
+															<input type="file" name="file" id="file" value=""/>
+														</div>
+														<div class="col-6 col-12-xsmall" style="width:60%">
+															<input type="text" name="title" id="title" value="" placeholder="제목을 입력하세요" />
+														</div>　
+														<div class="col-12" style="width:60%">
+															<textarea name="content" id="content" rows="6"  placeholder="내용을 입력하세요"></textarea>
+														</div>
+
+
+
+														<div class="col-12">
+															<ul class="actions" style="float:right">
+																<li><input type="submit" value="글쓰기" class="button primary small" /></li>
+																<li><input type="reset" value="취소" class="button small" /></li>
+															</ul>
+														</div>
+													</div>
+												</form>
+											</section>
 								</div>
-							</div>
 
 
 

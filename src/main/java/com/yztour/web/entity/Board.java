@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Notice {
+public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,12 +1,12 @@
-package com.yztour.web.controller.customer.notice;
+package com.yztour.web.controller.customer.board;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/notice/")
-public class NoticeController {
+@RequestMapping("/board/")
+public class BoardController {
 
     @GetMapping("list")
     public String list(){
