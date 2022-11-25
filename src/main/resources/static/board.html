@@ -60,95 +60,100 @@
 						<header class="major">
 							<h2 style="margin:0">고객게시판</h2>
 						</header>
-
-							<!--Sidebar -->
-
-								<!-- Contents -->
-								<div class="col-8 col-12-medium imp-medium">
-									<blockquote style="padding:0"><h4>　고객게시판</h4></blockquote>
-										<!--<pre><code>-->
-												<div class="table-wrapper">
-													<table>
-														<thead>
-															<tr>
-																<th>글번호</th>
-																<th>제목</th>
-																<th>작성자</th>
-																<th>작성일</th>
-																<th>조회수</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td>5</td>
-																<td><a href="detail.html">예제1 글작성을 위한 예시폼입니다.</a></td>
-																<td>워니</td>
-																<td>2022-11-25</td>
-																<td>7</td>
-															</tr>
-															<tr>
-																<td>4</td>
-																<td><a href="detail.html">예제2</a></td>
-																<td>권예지</td>
-																<td>2022-11-25</td>
-																<td>768</td>
-															</tr>
-															<tr>
-																<td>3</td>
-																<td><a href="detail.html">예제3</a></td>
-																<td>이혜원</td>
-																<td>2022-11-25</td>
-																<td>20</td>
-															</tr>
-															<tr>
-																<td>2</td>
-																<td><a href="detail.html">예제4</a></td>
-																<td>쿼카</td>
-																<td>2022-11-25</td>
-																<td>1000</td>
-															</tr>
-															<tr>
-																<td>1</td>
-																<td><a href="detail.html">예제5</a></td>
-																<td>홍길동</td>
-																<td>2022-11-25</td>
-																<td>0</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-												<h3 class="hidden">공지사항 검색폼</h3>
-														<fieldset>
-															<legend class="hidden">공지사항 검색 필드</legend>
-															<label class="hidden">검색분류</label>
-															<select name="f" style="width:10%">
-																<option value="title">제목</option>
-																<option value="writerId">작성자</option>
+							<!-- Contents -->
+							<div class="col-8 col-12-medium imp-medium">
+								<blockquote style="padding:0"><h4>　고객게시판</h4></blockquote><br/><br/>
+									<!-- Search -->
+									<div class="container">
+										<div class="row" style=" margin-left:-4.5em;">
+											<form action="search.html" method="post" name="search" >
+												<table style="padding:0.25em 0.75em;">
+													<tr >
+														<td>
+															<select class="col-12" name="searchField">
+																<option value="0">선택</option>
+																<option value="bbsTitle">제목</option>
+																<option value="userID">작성자</option>
 															</select>
-															<label class="hidden">검색어</label>
-															<input type="text" name="q" value="" style="width:20%"/>
-															<input class="button small" type="submit" value="검색" />
-														</fieldset>
-												<div style="float:right" >
-													<a href="member.html" class="button primary small">글쓰기</a>
-												</div>
-										<!--</code></pre>-->
+														</td>
+														<td><input type="text" placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+														<td><button type="submit" class="button small">검색</button></td>
+													</tr>
+												</table>
+											</form>
+										</div>
+									</div><br/>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>글번호</th>
+													<th>제목</th>
+													<th>작성자</th>
+													<th>작성일</th>
+													<th>조회수</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>5</td>
+													<td><a href="detail.html">예제1 글작성을 위한 예시폼입니다.</a></td>
+													<td>워니</td>
+													<td>2022-11-25</td>
+													<td>777</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td><a href="detail.html">예제2</a></td>
+													<td>권예지</td>
+													<td>2022-11-25</td>
+													<td>768</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td><a href="detail.html">예제3</a></td>
+													<td>이혜원</td>
+													<td>2022-11-25</td>
+													<td>471</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td><a href="detail.html">예제4</a></td>
+													<td>쿼카</td>
+													<td>2022-11-25</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td><a href="detail.html">예제5</a></td>
+													<td>홍길동</td>
+													<td>2022-11-25</td>
+													<td>0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div><br/>
 
+									<div style="float:right;"><span><strong style="color:bisque;"> 1</strong></span> / 1 pages</div><br/>
+									<div class="parent" style="text-align:center;">
+										<div class="first" style="width:32%; float:left;  box-sizing: border-box;" >
+											<span class="button small" style="padding:0 0.5em 0.5em 0.5em; " onclick="alert('이전 페이지가 없습니다.');"> < </span>
+										</div>
+										<div>
+											<ul class="second" style="list-style: none; padding-left: 0px; text-align:center; float: left; width:30%; margin-left: 5%; box-sizing: border-box;">
+												<li><a href="?p=1&t=&q="><strong style="color:bisque;">1</strong></a></li>
+											</ul>
+										</div>
+										<div class="third" style="width:32%; float:right;  box-sizing: border-box;">
+											<span class="button small" style="padding:0 0.5em 0.5em 0.5em; " onclick="alert('다음 페이지가 없습니다.');"> > </span>
+										</div>
+									</div><br/><br/><br/>
 
-								</div>
+									<div style="float:right;">
+										<a href="form.html" class="button primary small">글쓰기</a>
+									</div>
 
-
-
-                           <!-- Lists -->
-
-						<!-- Table -->
-
-						<!-- Buttons -->
-
-						<!-- Form -->
-
-						<!-- Image -->
-
+							</div>
 					</div>
 				</div>
 
