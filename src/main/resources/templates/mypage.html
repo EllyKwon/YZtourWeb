@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/layout">
+<th:block layout:fragment="content">
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2 style="margin:0">마이페이지</h2>
+						</header>
+
+							<!--Sidebar -->
+							<div class="row gtr-150">
+								<div class="col-4 col-12-medium" style="width:250px;">
+									<section id="sidebar">
+                                   		<section>
+											<a href="/mypage">내가입정보</a>
+									   </section>
+									   <hr style="margin:1em 0;"/>
+									   <section>
+										   <a href="/mypage/mylist">내가 쓴글</a>
+									   </section>
+										<hr style="margin:1em 0;"/>
+										<section>
+											<a href="/reserve">예약확인 / 취소</a>
+										</section>
+								   </section>
+								</div>
+
+								<!-- Contents -->
+								<div class="col-8 col-12-medium imp-medium">
+									<blockquote style="padding:0"><h4>　내가입정보</h4></blockquote>
+									<!--<blockquote>-->
+									<table>
+										<tr>
+											<td>아이디</td>
+										</tr>
+										<tr>
+											<td >비밀번호(*표시할것)</td>
+										</tr>
+										<tr>
+											<td>이름</td>
+										</tr>
+										<tr>
+											<td>생년월일</td>
+										</tr>
+										<tr>
+											<td>연락처</td>
+										</tr>
+										<tr>
+											<td>이메일</td>
+										</tr>
+										<tr>
+											<td>주소</td>
+										</tr>
+										<tr>
+											<td>상세주소</td>
+										</tr>
+										<tr>
+											<td>가입경로</td>
+										</tr>
+										<tr>
+											<td>추천인</td>
+										</tr>
+									</table>
+
+									<!--</blockquote>-->
+										<div style="float:right" ><br/><br/>
+										<a href="/member" >회원정보수정</a> ㅣ
+										<a href="/member">회원탈퇴</a>
+										</div>
+								</div>
+							</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+		</div>
+	</body>
+</th:block>
+</html>

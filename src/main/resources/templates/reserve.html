@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout" xmlns="http://www.w3.org/1999/html">
+<th:block layout:fragment="content">
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2 style="margin:0">패키지 예약</h2>
+						</header>
+
+							<!--Sidebar -->
+							<div class="row gtr-150">
+								<div class="col-4 col-12-medium" style="width:250px;">
+									<section id="sidebar">
+                                   		<section>
+											<a href="/mypage">국내패키지</a>
+									   </section>
+									   <hr style="margin:1em 0;"/>
+									   <section>
+										   <a href="/mypage/mylist">해외패키지</a>
+									   </section>
+										<hr style="margin:1em 0;"/>
+										<section>
+											<a href="/reserve">예약확인 / 취소</a>
+										</section>
+								   </section>
+								</div>
+
+								<!-- Contents -->
+								<div class="col-8 col-12-medium imp-medium">
+									<blockquote style="padding:0"><h4>　판매중인 해외패키지</h4></blockquote>
+									<hr/>
+										<div class="box alt" >
+											<div class="row gtr-50 gtr-uniform" >
+												<section>
+													<h6>#베트남다낭</h6>
+													<p><span class="image left"><img src="images/danang.jpg" alt="" /></span>
+													<span class="image left"><img src="images/danang2.jpg" alt="" /></span></p><br/>
+												</section>
+												<span>베트남다낭 / 3박4일 / 호텔4성급 / 쇼핑3회 / 가이드있음 / #관광</span>
+												<span>#미케비치/ #다나힐 / #호이안 / #올드타운 / #다낭대성당</span>
+
+												<div class="btn_tab_image" id="btn_tab_image">
+													<a href="#" onclick="foldLeftmenu();" class="button small">가능예약일보기</a>
+												</div>
+											</div>
+										</div>
+									<hr/>
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform" >
+											<section>
+												<h6>#일본 오사카</h6>
+												<p><span class="image left"><img src="images/osaka.jpg" alt="" /></span>
+													<span class="image left"><img src="images/osakacastle.jpg" alt="" /></span></p><br/>
+											</section>
+											<span>일본 오사카 / 3박4일 / 호텔4성급 / 쇼핑4회 / 가이드있음 / #관광</span>
+											<span>#오사카성/ #유니버셜스튜디오 / #도톤보리 / #가이유칸 / #쓰텐가쿠</span>
+
+											<div class="btn_tab_image" id="btn_tab_image">
+												<a href="#" onclick="foldLeftmenu();" class="button small">가능예약일보기</a>
+											</div>
+										</div>
+									</div>
+									<hr/>
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform" >
+											<section>
+												<h6>#필리핀 보라카이</h6>
+												<p><span class="image left"><img src="images/bora.jpg" alt="" /></span>
+													<span class="image left"><img src="images/boracaybeach.jpg" alt="" /></span></p><br/>
+											</section>
+											<span>필리핀 보라카이 / 1주일 / 호텔4성급 / 쇼핑7회 / 가이드있음 / #관광</span>
+											<span>#화이트비치/ #아리엘포인트 / #푸카쉘비치 / #윌리스락 / #디몰</span>
+
+											<div class="btn_tab_image" id="btn_tab_image">
+												<a href="#" onclick="foldLeftmenu();" class="button small">가능예약일보기</a>
+											</div>
+										</div>
+									</div>
+									<hr/>
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform" >
+											<section>
+												<h6>#싱가포르</h6>
+												<p><span class="image left"><img src="images/singapore.jpg" alt="" /></span>
+													<span class="image left"><img src="images/gardenbythebay.jpg" alt="" /></span></p><br/>
+											</section>
+											<span>싱가포르 / 4박5일 / 호텔5성급 / 쇼핑4회 / 가이드있음 / #관광</span>
+											<span>#가든스 바이 더베이/ #보타닉가든 / #오차드로드 / #아트사이언스 뮤지엄</span>
+
+											<div class="btn_tab_image" id="btn_tab_image">
+												<a href="#" onclick="foldLeftmenu();" class="button small">가능예약일보기</a>
+											</div>
+										</div>
+									</div>
+									<hr/>
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform" >
+											<section>
+												<h6>#괌</h6>
+												<p><span class="image left"><img src="images/guam.jpg" alt="" /></span>
+													<span class="image left"><img src="images/guamcliff.jpg" alt="" /></span></p><br/>
+											</section>
+											<span>괌 / 1주일 / 호텔5성급 / 쇼핑7회 / 가이드있음 / #관광</span>
+											<span>#이파오비치 공원/ #차모르 야시장 / #사랑의절벽 / #투몬비치</span>
+
+											<div class="btn_tab_image" id="btn_tab_image">
+												<a href="#" onclick="foldLeftmenu();" class="button small">가능예약일보기</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+			<script type=text/javascript>
+  function foldLeftmenu() {
+    var leftFrameSet = parent.document.all.leftFrameSet;
+    // 접기
+    if (leftFrameSet.cols == "319,*") {
+      leftFrameSet.cols = "0,*";
+      document.btn_fold.src = "/calendar";
+    // 펼치기
+    } else if (leftFrameSet.cols == "0,*") {
+      leftFrameSet.cols = "319,*";
+      document.btn_fold.src = "/calendar";
+    }
+  }
+</script>
+		</div>
+	</body>
+</th:block>
+</html>

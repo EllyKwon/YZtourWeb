@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>YZ Tour : 떠나고싶다면? 당신의 여행파트너, YZ Tour와 함께</title>
+		<title>YZ Tour : 고객게시판</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -58,84 +58,51 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2 style="margin:0">마이페이지</h2>
-						</header>
-
-							<!--Sidebar -->
-							<div class="row gtr-150">
-								<div class="col-4 col-12-medium">
-									<section id="sidebar">
-                                   		<section>
-											<a href="mymenu.html">내가입정보</a>
-									   </section>
-									   <hr/>
-									   <section>
-										   <a href="mylist.html">내가 쓴글</a>
-									   </section>
-										<hr/>
-										<section>
-											<a href="reserve.html">예약확인 / 취소</a>
-										</section>
-								   </section>
-								</div>
-
+							<h2 style="margin:0">고객게시판</h2>
+						</header><br/>
 								<!-- Contents -->
-								<div class="col-8 col-12-medium imp-medium">
-									<blockquote style="padding:0"><h4>　내가입정보</h4></blockquote>
-									<!--<blockquote>-->
-									<table>
-										<tr>
-											<td>아이디</td>
-										</tr>
-										<tr>
-											<td >비밀번호(*표시할것)</td>
-										</tr>
-										<tr>
-											<td>이름</td>
-										</tr>
-										<tr>
-											<td>생년월일</td>
-										</tr>
-										<tr>
-											<td>연락처</td>
-										</tr>
-										<tr>
-											<td>이메일</td>
-										</tr>
-										<tr>
-											<td>주소</td>
-										</tr>
-										<tr>
-											<td>상세주소</td>
-										</tr>
-										<tr>
-											<td>가입경로</td>
-										</tr>
-										<tr>
-											<td>추천인</td>
-										</tr>
-									</table>
-
-									<!--</blockquote>-->
-										<div style="float:right" ><br/><br/>
-										<a href="member.html" >회원정보수정</a> ㅣ
-										<a href="member.html">회원탈퇴</a>
+						<div class="col-8 col-12-medium imp-medium" >
+						<blockquote style="padding:0; margin-left: 10em;"><h4>　고객게시판 > 게시글수정</h4></blockquote><br/><br/>
+							<section>
+								<form action="detail.html" method="post">
+									<div class="row gtr-uniform gtr-50" style="margin-left:15em; width:1400px;">
+										<div class="col-12" style="width:25%">
+											<select name="category" id="category" required>
+												<option value="">- 카테고리 선택-</option>
+												<option value="1">예약확인/취소</option>
+												<option value="1">마이페이지</option>
+												<option value="1">기타문의</option>
+											</select>
 										</div>
-								</div>
-							</div>
+										<div class="col-6 col-12-xsmall" style="width:15%">
+											<input type="text" name="writerId" id="writerId" value="" placeholder="작성자" required/>
+										</div>
+										<div class="col-6 col-12-xsmall" style="width:15%">
+											<input type="file" name="file" id="file" value="" required/>
+										</div>
+										<div class="col-6 col-12-xsmall" style="width:60%">
+											<input type="text" name="title" id="title" value="" placeholder="제목을 입력하세요" required/>
+										</div>　
+										<div class="col-12" style="width:60%;" >
+											<textarea name="content" id="content" rows="6"  placeholder="내용을 입력하세요" required></textarea>
+										</div>
+										<div class="col-6 col-12-medium">
+											<input type="checkbox" id="pub" name="pub">
+											<label for="pub">비공개</label>
+										</div><br/><br/><br/><br/>
 
 
 
-                           <!-- Lists -->
-
-						<!-- Table -->
-
-						<!-- Buttons -->
-
-						<!-- Form -->
-
-						<!-- Image -->
-
+										<div class="col-12">
+											<ul class="actions" style="float:center">
+												<li><input type="submit" value="글쓰기" name="write" class="button primary small" /></li>
+												<li><a href="board.html" class="button small">취소</a></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
 					</div>
 				</div>
 
@@ -158,18 +125,16 @@
 						<li>Copyright&copy; YZ TOUR service Inc. All rights reserved.</li>
 					</ul>
 				</footer>
-
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrolly.min.js"></script>
+				<script src="assets/js/jquery.dropotron.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
 	</body>
 </html>

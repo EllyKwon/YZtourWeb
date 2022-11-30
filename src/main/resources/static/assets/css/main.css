@@ -110,7 +110,7 @@ input, select, textarea {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
+
 		color: #e44c65;
 		text-decoration: none;
 	}
@@ -118,6 +118,7 @@ input, select, textarea {
 		a:hover {
 			color: #e44c65 !important;
 			border-bottom-color: transparent;
+            border-bottom: dotted 1px;
 		}
 
 	strong, b {
@@ -2285,7 +2286,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 3em;
+		height: 2em; /*원본3em이었는데 2em으로 수정함*/
 	}
 
 	textarea {
@@ -2523,7 +2524,7 @@ input, select, textarea {
 			position: absolute;
 			left: 0;
 			top: 0;
-			background-image: url("images/overlay.png");
+			/*background-image: url("images/overlay.png"); 삭제한걸로 수정함 */
 			width: 100%;
 			height: 100%;
 			z-index: 1;
@@ -2773,7 +2774,7 @@ input, select, textarea {
 			}
 
 		table td {
-			padding: 0.75em 0.75em;
+			padding: 0.25em 0.75em; /*원본 0.75em 0.75em 이었는데 수정함*/
 		}
 
 		table th {
@@ -3057,7 +3058,7 @@ input, select, textarea {
 		}
 
 		.spotlight:before {
-			background-image: url("images/overlay.png");
+			/*background-image: url("images/overlay.png"); 삭제함으로 수정함*/
 			content: '';
 			display: block;
 			height: 100%;

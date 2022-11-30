@@ -5,44 +5,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/board/")
+@RequestMapping("/board")
 public class BoardController {
 
-    @GetMapping("list")
-    public String list(){
+    @GetMapping("")
+    public String board(){
 
-        return "list";
+        return "board";
     }
 
-    @GetMapping("detail")
-    public String detail(){
-
-        return "detail";
-    }
-
-
-    @GetMapping("write")
+    @GetMapping("/write")
     public String write(){
 
         return "write";
     }
 
+    @GetMapping("/detail")
+    public String detail(){
 
-    @GetMapping("search")
+        return "detail";
+    }
+
+    @GetMapping("/search")
     public String search(){
 
         return "search";
     }
 
-
-    @GetMapping("update")
+    @GetMapping("/update")
     public String update(){
 
         return "update";
     }
 
-
-    @GetMapping("delete")
+    @GetMapping("/delete")
     public String delete(){
 
         return "delete";

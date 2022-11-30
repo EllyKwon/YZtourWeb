@@ -5,17 +5,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mypage/")
+@RequestMapping("/mypage")
 public class MypageController {
 
-    @GetMapping("member")
-    public String member(){
+    @GetMapping("")
+    public String mypage(){
 
-        return "member";
+        return "mypage";
     }
 
-    @GetMapping("reserve")
-    public String reserve(){
+    @GetMapping("/mylist")
+    public String mylist(){
+
+        return "mylist";
+    }
+
+    @GetMapping("/myreserve")
+    public String myreserve(){
 
         return "reserve";
     }

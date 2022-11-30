@@ -1,18 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/layout">
+<th:block layout:fragment="content">
 	<head>
 		<title>YZ Tour : 회원가입</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
-
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
 
 		<style>
@@ -47,43 +37,8 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<header id="header">
-				<h1 id="logo"><a href="index.html">당신의 여행파트너, YZ Tour</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">메인</a></li>
-						<li>
-							<a href="#">예약하기</a>
-							<ul>
-								<li><a href="local.html">국내패키지상품</a></li>
-								<li><a href="overseas.html">해외패키지상품</a></li>
-								<li>
-									<a href="#">Submenu</a>
-									<ul>
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-										<li><a href="#">Option 4</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="mypage.html">마이페이지</a>
-							<ul>
-								<li><a href="#">내가입정보</a></li>
-								<li><a href="#">내가 쓴글</a></li>
-								<li><a href="#">예약확인 / 취소</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="board.html">고객게시판</a>
-						</li>
-						<li><a href="login.html" class="button primary small">로그인</a></li>
-						<li><a href="join.html" class="button primary small">회원가입</a></li>
-					</ul>
-				</nav>
-			</header>
+
+			<!-- Header2 -->
 			<header class="major">
 				<h2 style="margin: 2em 0 0 0" >회원가입</h2>
 			</header>
@@ -167,8 +122,8 @@
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" id="aggrement" required>
 								<label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>　　　　
-							<button class="button primary" type="submit">가입 완료</button>
-							<a href="index.html" class="button">취소</a>
+								<button class="button primary" type="submit">가입 완료</button>
+								<input type="button" class="button" value="취소" onclick="history.back(-1);">
 							</div>
 						</form>
 					</div>
@@ -191,33 +146,9 @@
 				}, false);
 			</script>
 
-
-
 			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>대표자 : 권예지</li><li>☎ TEL 010-7129-3630</li><br/><br/>
-						<li>본사주소 : 서울시 강남대로 1000억빌딩 YZ투어</li>
-					</ul>
-				</footer>
-		</div>
 
-			<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/jquery.scrolly.min.js"></script>
-				<script src="assets/js/jquery.dropotron.min.js"></script>
-				<script src="assets/js/jquery.scrollex.min.js"></script>
-				<script src="assets/js/browser.min.js"></script>
-				<script src="assets/js/breakpoints.min.js"></script>
-				<script src="assets/js/util.js"></script>
-				<script src="assets/js/main.js"></script>
+		</div>
 	</body>
+</th:block>
 </html>
