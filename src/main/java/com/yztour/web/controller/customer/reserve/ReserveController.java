@@ -20,5 +20,9 @@ public class ReserveController {
         return "reserve";
     }
 
+    @GetMapping("/calendar")
+    public String calendar(){
+        return "calendar";
+    }
 
 }
