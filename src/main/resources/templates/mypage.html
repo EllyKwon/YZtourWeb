@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/layout">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout" xmlns="http://www.w3.org/1999/html">
 <th:block layout:fragment="content">
 	<head>
 		<title>YZ Tour : 마이페이지 </title>
@@ -17,8 +18,8 @@
 
 							<!--Sidebar -->
 							<div class="row gtr-150">
-								<div class="col-4 col-12-medium" style="width:250px;">
-									<section id="sidebar">
+								<div class="col-4 col-12-medium" style="width:250px;background:#29292e;border-radius:50px; border-top: bisque solid; border-bottom: bisque solid;">
+									<section id="sidebar" style="margin-top:2em;margin-left:-3.75em;text-align:center;">
                                    		<section>
 											<a href="/mypage">내가입정보</a>
 									   </section>
@@ -28,7 +29,7 @@
 									   </section>
 										<hr style="margin:1em 0;"/>
 										<section>
-											<a href="/reserve">예약확인 / 취소</a>
+											<a href="/mypage/myreserve">예약확인 / 취소</a>
 										</section>
 								   </section>
 								</div>
@@ -71,10 +72,12 @@
 									</table>
 
 									<!--</blockquote>-->
+									<form action="/out" method="post" name="member">
 										<div style="float:right" ><br/><br/>
-										<a href="/member" >회원정보수정</a> ㅣ
-										<a href="/member">회원탈퇴</a>
+											<a href="#none" name="member">회원정보수정</a> ㅣ
+											<a href="/out" onclick="confirm('회원을 탈퇴하시겠습니까?')" name="member" style="color:#e44c65;">회원탈퇴</a>
 										</div>
+									</form>
 								</div>
 							</div>
 					</div>

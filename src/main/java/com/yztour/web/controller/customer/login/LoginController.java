@@ -17,4 +17,11 @@ public class LoginController {
 
         return "join";
     }
+
+    @GetMapping("/out")
+    public String out(){
+
+        return "out";
+    }
+
 }
