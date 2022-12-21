@@ -1,14 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="layout/layout" xmlns="http://www.w3.org/1999/html">
-<th:block layout:fragment="content">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/layout" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<title>YZ Tour : 마이페이지 </title>
 	</head>
+<th:block layout:fragment="content">
 	<body class="is-preload">
 		<div id="page-wrapper">
-			<!-- Header -->
-
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
 					<div class="container">
@@ -18,8 +15,8 @@
 
 							<!--Sidebar -->
 							<div class="row gtr-150">
-								<div class="col-4 col-12-medium" style="width:250px;background:#29292e;border-radius:50px; border-top: bisque solid; border-bottom: bisque solid;">
-									<section id="sidebar" style="margin-top:2em;margin-left:-3.75em;text-align:center;">
+								<div class="col-4 col-12-medium" style="width:250px;background:#29292e;border-radius:50px;">
+									<section id="sidebar" style="margin-top:1em;margin-left:-3.75em;text-align:center;">
                                    		<section>
 											<a href="/mypage">내가입정보</a>
 									   </section>
@@ -38,40 +35,52 @@
 								<div class="col-8 col-12-medium imp-medium">
 									<blockquote style="padding:0"><h4>　내가입정보</h4></blockquote>
 									<!--<blockquote>-->
-									<table>
+									<table th:object="${member}">
 										<tr>
 											<td>아이디</td>
+											<td th:text="*{userId}"></td>
 										</tr>
 										<tr>
-											<td >비밀번호(*표시할것)</td>
+											<td>비밀번호</td>
+											<td th:text="*{pwd}">비밀번호(*표시할것)</td>
 										</tr>
 										<tr>
 											<td>이름</td>
+											<td th:text="*{name}"></td>
 										</tr>
 										<tr>
 											<td>생년월일</td>
+											<td th:text="*{birthday}"></td>
 										</tr>
 										<tr>
 											<td>연락처</td>
+											<td th:text="*{phonenumber}"></td>
 										</tr>
 										<tr>
 											<td>이메일</td>
+											<td th:text="*{email}"></td>
 										</tr>
 										<tr>
 											<td>주소</td>
+											<td th:text="*{address}">주소</td>
 										</tr>
 										<tr>
 											<td>상세주소</td>
+											<td th:text="*{addressDetail}"></td>
+										</tr>
+										<tr>
+											<td>우편번호</td>
+											<td th:text="*{zipcode}"></td>
 										</tr>
 										<tr>
 											<td>가입경로</td>
+											<td th:text="*{route}"></td>
 										</tr>
 										<tr>
 											<td>추천인</td>
 										</tr>
 									</table>
 
-									<!--</blockquote>-->
 									<form action="/out" method="post" name="member">
 										<div style="float:right" ><br/><br/>
 											<a href="#none" name="member">회원정보수정</a> ㅣ

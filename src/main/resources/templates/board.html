@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/layout">
-<th:block layout:fragment="content">
 	<head>
 		<title>YZ Tour : 고객게시판</title>
 	</head>
+<th:block layout:fragment="content">
 	<body class="is-preload">
 		<div id="page-wrapper">
 
@@ -16,60 +16,48 @@
 						<blockquote style="padding:0"><h4>　고객게시판</h4></blockquote><br/>
 
 						<!-- Contents -->
-							<div class="col-8 col-12-medium imp-medium" style="background:#29292e;border-radius:50px;border-top: bisque solid; border-bottom: bisque solid;"><br/>
+							<div class="col-8 col-12-medium imp-medium" style="background:#29292e;border-radius:50px;border-top: bisque solid;"><br/>
 								<div class="table-wrapper" style="margin-left:1em;margin-right:1em;">
 									<table >
 										<thead>
 											<tr>
+												<th th:if="${isAdmin}">선택</th>
 												<th>글번호</th>
 												<th>제목</th>
 												<th>작성자</th>
 												<th>작성일</th>
 												<th>조회수</th>
+												<th th:if="${isAdmin}">관리</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>5</td>
-												<td><a href="/board/detail">예제1 글작성을 위한 예시폼입니다.</a></td>
-												<td>워니</td>
-												<td>2022-11-25</td>
-												<td>777</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td><a href="/board/detail">예제2</a></td>
-												<td>권예지</td>
-												<td>2022-11-25</td>
-												<td>768</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td><a href="/board/detail">예제3</a></td>
-												<td>이혜원</td>
-												<td>2022-11-25</td>
-												<td>471</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td><a href="/board/detail">예제4</a></td>
-												<td>쿼카</td>
-												<td>2022-11-25</td>
-												<td>1000</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="/board/detail">예제5</a></td>
-												<td>홍길동</td>
-												<td>2022-11-25</td>
-												<td>0</td>
+											<tr th:each="list:${resultList}">
+												<td th:if="${isAdmin}">
+													<input type="checkbox" class="manage-select" value="">
+												</td>
+												<td th:text="${listStat.count}"></td>
+												<td th:text="${list.title}"><a th:href="@{/board/detail}"></a></td>
+												<td th:text="${list.memberId}"></td>
+												<td th:text="${#dates.format(list.regdate,'yyyy-MM-dd')}"></td>
+												<td th:text="${list.hit}"></td>
+
+												<td th:if="${isAdmin}">
+													<select>
+														<option value="Y">공개</option>
+														<option value="N">비공개</option>
+													</select>
+													<button class="button primary small">삭제</button>
+												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 
 								<div style="float:right;margin-right:1em;">
-									<span><strong style="color:bisque;"> 1</strong></span> / 1 pages
+									<!--<span th:each="pageNum : ${resultList}" th:inline="text">
+										<a th:href="@{'/board?page=' + ${pageNum}}"> [[${pageNum}]]</a>
+									</span>-->
+									<span><strong style="color:bisque;" th:text="${nowPageNum}"></strong></span> / <span th:text="${total}"> pages </span>
 								</div><br/>
 								<div class="parent" style="text-align:center;">
 									<div class="first" style="width:32%; float:left;  box-sizing: border-box;" >
@@ -77,7 +65,7 @@
 									</div>
 									<div>
 										<ul class="second" style="list-style: none; padding-left: 0px; text-align:center; float: left; width:30%; margin-left: 5%; box-sizing: border-box;">
-											<li><a href="?p=1&t=&q="><strong style="color:bisque;">1</strong></a></li>
+											<li><a href="?pageNum= & searchCondition= & searchKeyword= "><strong style="color:bisque;">1</strong></a></li>
 										</ul>
 									</div>
 									<div class="third" style="width:32%; float:right;  box-sizing: border-box;">
@@ -92,13 +80,12 @@
 											<table >
 												<tr>
 													<td>
-														<select>
-															<option value="0">선택</option>
+														<select name="searchCondition">
 															<option value="title">제목</option>
-															<option value="writerId">작성자</option>
+															<option value="memberId">작성자</option>
 														</select>
 													</td>
-													<td><input type="text" placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+													<td><input type="text" placeholder="검색어 입력" name="searchKeyword" maxlength="20"></td>
 													<td><button type="submit" class="button small">검색</button></td>
 												</tr>
 											</table>

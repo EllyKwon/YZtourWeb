@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yztour.web.mapper.BoardMapper">
+
+    <select id="getSearchList" parameterType="BoardVO" resultType="BoardVO">
+        SELECT
+              BOARD_ID
+            , TITLE
+            , CONTENT
+            , REGDATE
+            , HIT
+            , PUB_YN
+            , CATEGORY
+            , MEMBER_ID
+            , FILE_ID
+        FROM BOARD
+        <where>
+            PUB_YN = 'Y'
+            <if test= "searchCondition eq 'title'">
+                AND TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+            </if>
+            <if test="searchCondition eq 'memberId'" >
+                AND MEMBER_ID LIKE CONCAT('%', #{searchKeyword}, '%')
+            </if>
+        </where>
+        ORDER BY REGDATE DESC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+
+<!--
+    <insert id="" parameterType="">
+        INSERT INTO BOARD ( )
+        VALUES ( )
+    </insert>
+-->
+
+    <!--수정-->
+<!--
+    <update id="" parameterType="Bo">
+        UPDATE BOARD
+        SET
+            <if test="TITLE != NULL"> TITLE=#{TITLE}</if>
+            <if test="CONTENT != NULL"> TITLE=#{CONTENT}</if>
+            <if test="CATEGORY != NULL"> TITLE=#{CATEGORY}</if>
+        WHERE ID = #{ID}
+    </update>
+-->
+
+    <!--삭제-->
+<!--
+    <delete id="">
+        DELETE FROM BOARD
+        WHERE ID = #{ }
+    </delete>
+-->
+
+    <!--일괄삭제-->
+<!--
+    <delete id="deleteAll">
+        DELETE FROM BOARD
+        WHERE ID IN #{id}
+    </delete>
+-->
+
+    <!--현재페이지수-->
+
+
+    <!--페이징처리(전체페이지수)-->
+    <select id="totalCount" parameterType="boardVO" resultType="int">
+        SELECT COUNT(*)
+        FROM BOARD
+        <where>
+            PUB_YN = 'Y'
+            <if test= "searchCondition eq 'title'">
+                AND TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+            </if>
+            <if test="searchCondition eq 'memberId'" >
+                AND MEMBER_ID LIKE CONCAT('%', #{searchKeyword}, '%')
+            </if>
+        </where>
+        ORDER BY REGDATE DESC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <!--다음글-->
+<!--
+    <select id="getNext" resultType="int">
+        SELECT * FROM BOARD
+        WHERE REGDATE &gt; (SELECT REGDATE FROM NOTICE WHERE ID = #{ID})
+        LIMIT 1
+    </select>
+-->
+
+    <!--이전글-->
+<!--
+    <select id="getPrev" resultType="int">
+        SELECT * FROM BOARD
+        WHERE REGDATE &lt; (SELECT REGDATE FROM NOTICE WHERE ID=#{ID})
+        ORDER BY REGDATE DESC
+        LIMIT 1
+    </select>
+-->
+
+    <!--공개-->
+<!--
+    <update id="">
+
+    </update>
+-->
+
+    <!--일괄공개-->
+<!--
+    <update id="updatePubAll">
+        UPDATE BOARD
+        SET PUB = #{PUB}
+        WHERE ID IN
+        <foreach item="id" index="index" collection="ids"
+                 open="(" separator="," close=")" >
+        #{ID}
+        </foreach>
+    </update>
+-->
+
+
+</mapper>
