@@ -31,11 +31,11 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="list:${resultList}">
+											<tr th:each="list, i :${resultList}">
 												<td th:if="${isAdmin}">
 													<input type="checkbox" class="manage-select" value="">
 												</td>
-												<td th:text="${listStat.count}"></td>
+												<td th:text="${(boardVO.totalCount-((boardVO.pageNum-1)*10))-i.index}"></td>
 												<td th:text="${list.title}"><a th:href="@{/board/detail}"></a></td>
 												<td th:text="${list.memberId}"></td>
 												<td th:text="${#dates.format(list.regdate,'yyyy-MM-dd')}"></td>
@@ -57,35 +57,39 @@
 									<!--<span th:each="pageNum : ${resultList}" th:inline="text">
 										<a th:href="@{'/board?page=' + ${pageNum}}"> [[${pageNum}]]</a>
 									</span>-->
-									<span><strong style="color:bisque;" th:text="${nowPageNum}"></strong></span> / <span th:text="${total}"> pages </span>
+									<span><strong style="color:bisque;" th:text="${boardVO.pageNum}"></strong></span> / <span th:text="${totalpage}"> pages </span>
 								</div><br/>
 								<div class="parent" style="text-align:center;">
-									<div class="first" style="width:32%; float:left;  box-sizing: border-box;" >
-										<span class="button small" style="padding:0 0.5em 0.5em 0.5em; " onclick="alert('이전 페이지가 없습니다.');"> < </span>
+									<div class="first" style="width:10%; float:left;  box-sizing: border-box;" th:remove="${boardVO.pageNum > 1} ? tag : all" >
+										<a th:href="@{board(pageNum=${prevPage})}">
+											<span class="button small" style="padding:0 0.5em 0.5em 0.5em;" th:text="'<'"></span>
+										</a>
 									</div>
-									<div>
-										<ul class="second" style="list-style: none; padding-left: 0px; text-align:center; float: left; width:30%; margin-left: 5%; box-sizing: border-box;">
-											<li><a href="?pageNum= & searchCondition= & searchKeyword= "><strong style="color:bisque;">1</strong></a></li>
+									<div th:each="page : ${#numbers.sequence(boardVO.pageNum,boardVO.pageNum+1)}">
+										<ul class="second" style="list-style: none; padding-left: 0px; text-align:center; float: left;  margin-left: 5%; box-sizing: border-box;">
+											<li style="width:7%;"><a th:href="@{board(pageNum=${page})}"><strong style="color:bisque;" th:text="${page}"></strong></a></li>
 										</ul>
 									</div>
-									<div class="third" style="width:32%; float:right;  box-sizing: border-box;">
-										<span class="button small" style="padding:0 0.5em 0.5em 0.5em; " onclick="alert('다음 페이지가 없습니다.');"> > </span>
+									<div class="third" style="width:10%; float:right;  box-sizing: border-box;" th:remove="${boardVO.pageNum < totalpage} ? tag : all">
+										<a th:href="@{board(pageNum=${nextPage})}">
+											<span class="button small" style="padding:0 0.5em 0.5em 0.5em;" th:text="'>'"></span>
+										</a>
 									</div>
 								</div><br/><br/><br/>
 
 								<!-- Search -->
 								<div class="container">
 									<div style="margin:auto;width:50%;">
-										<form action="/board" method="get" name="search" >
+										<form action="/board" method="get">
 											<table >
 												<tr>
 													<td>
 														<select name="searchCondition">
-															<option value="title">제목</option>
-															<option value="memberId">작성자</option>
+															<option th:selected="${boardVO.searchCondition}=='title'"  th:value="title">제목</option>
+															<option th:selected="${boardVO.searchCondition}=='memberId'"  th:value="memberId">작성자</option>
 														</select>
 													</td>
-													<td><input type="text" placeholder="검색어 입력" name="searchKeyword" maxlength="20"></td>
+													<td><input type="text" placeholder="검색어 입력" name="searchKeyword" th:field="${boardVO.searchKeyword}"  maxlength="20"></td>
 													<td><button type="submit" class="button small">검색</button></td>
 												</tr>
 											</table>

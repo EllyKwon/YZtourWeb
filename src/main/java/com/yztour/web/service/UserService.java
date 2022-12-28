@@ -24,9 +24,11 @@ public class UserService {  //기능을하는곳
 
     public ArrayList<FileVO> getFileList(){return  mapper.getFileList();}
 
-    public int totalCount(){
-        return mapper.totalCount();
-    };
+    public int totalCount(BoardVO boardVO){
+        return mapper.totalCount(boardVO);
+    }
+
+
 
 
 

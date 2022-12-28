@@ -67,21 +67,22 @@
     <!--현재페이지수-->
 
 
+    <!--글번호내림차순-->
+
+
     <!--페이징처리(전체페이지수)-->
-    <select id="totalCount" parameterType="boardVO" resultType="int">
+    <select id="totalCount" parameterType="BoardVO" resultType="int">
         SELECT COUNT(*)
         FROM BOARD
         <where>
             PUB_YN = 'Y'
-            <if test= "searchCondition eq 'title'">
+            <if test="searchCondition eq 'title'">
                 AND TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
             </if>
             <if test="searchCondition eq 'memberId'" >
                 AND MEMBER_ID LIKE CONCAT('%', #{searchKeyword}, '%')
             </if>
         </where>
-        ORDER BY REGDATE DESC
-        LIMIT #{limit} OFFSET #{offset}
     </select>
 
     <!--다음글-->

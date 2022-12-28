@@ -28,17 +28,20 @@ public class BoardVO {
     private int size = 10;
     private int limit;
     private int offset;
-    private int total;
-    private int nowPageNum;
+    private int totalCount;
+    private int totalPage;
+    private int displayPageNum=2;
+    private int prevPage;
+    private int nextPage;
+    private int startPage;
+    private int endPage;
 
 
-    /*public int getTotal() {
-        return service.totalCount();
+
+
+    public int getTotalPage() {
+        return (int) Math.ceil(totalCount/10.0);
     }
-
-    public int getNowPageNum() {
-        return (int) Math.ceil(total/10);
-    }*/
 
     public int getLimit() {
         return size;
@@ -46,5 +49,21 @@ public class BoardVO {
 
     public int getOffset() {
         return pageNum == 1 ? 0 : ((pageNum-1) * size);
+    }
+
+    public int getPrevPage() {
+        return pageNum-1;
+    }
+
+    public int getNextPage() {
+        return pageNum+1;
+    }
+
+    public int getStartPage() {
+        return (endPage - displayPageNum) + 1;
+    }
+
+    public int getEndPage() {
+        return (startPage + displayPageNum) -1;
     }
 }

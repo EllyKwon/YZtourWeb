@@ -31,11 +31,12 @@ public interface BoardMapper {
     int deleteAll(int[] ids);
 
 
+
     /*현재페이지수*/
     int pageNum();
 
     /*페이징처리(전체페이지수)*/
-    int totalCount();
+    int totalCount(BoardVO boardVO);
 
     /*다음페이지,이전페이지*/
     BoardVO getNext(int id);

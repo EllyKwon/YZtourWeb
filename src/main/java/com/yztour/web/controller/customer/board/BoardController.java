@@ -21,15 +21,19 @@ public class BoardController {
     public String board(BoardVO boardVO, Model model){
 
         ArrayList<BoardVO> resultList = service.getSearchList(boardVO);
+
+        boardVO.setTotalCount(service.totalCount(boardVO));
+
         model.addAttribute("resultList", resultList);
-
-        int total = service.totalCount();
-        int nowPageNum = (int) Math.ceil(total/10);
-
-        model.addAttribute("total",total);
-        model.addAttribute("nowPageNum",nowPageNum);
+        model.addAttribute("totalpage",boardVO.getTotalPage());
+        model.addAttribute("boardVO",boardVO);
+        model.addAttribute("prevPage",boardVO.getPrevPage());
+        model.addAttribute("nextPage",boardVO.getNextPage());
+        model.addAttribute("startPage",boardVO.getStartPage());
+        model.addAttribute("endPage",boardVO.getEndPage());
 
         return "board";
+
     }
 
 
