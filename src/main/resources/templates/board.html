@@ -35,9 +35,11 @@
 												<td th:if="${isAdmin}">
 													<input type="checkbox" class="manage-select" value="">
 												</td>
-												<td th:text="${(boardVO.totalCount-((boardVO.pageNum-1)*10))-i.index}"></td>
-												<td th:text="${list.title}"><a th:href="@{/board/detail}"></a></td>
-												<td th:text="${list.memberId}"></td>
+												<td th:text="${(boardVO.totalCount-((boardVO.pageNum-1)*boardVO.size))-i.index}"></td>
+												<td>
+													<a th:href="@{board/detail(boardId=${list.boardId})}" th:text="${list.title}"></a>
+												</td>
+												<td th:text="${list.name}"></td>
 												<td th:text="${#dates.format(list.regdate,'yyyy-MM-dd')}"></td>
 												<td th:text="${list.hit}"></td>
 
@@ -61,17 +63,17 @@
 								</div><br/>
 								<div class="parent" style="text-align:center;">
 									<div class="first" style="width:10%; float:left;  box-sizing: border-box;" th:remove="${boardVO.pageNum > 1} ? tag : all" >
-										<a th:href="@{board(pageNum=${prevPage})}">
+										<a th:href="@{board(pageNum=${boardVO.pageNum-1})}">
 											<span class="button small" style="padding:0 0.5em 0.5em 0.5em;" th:text="'<'"></span>
 										</a>
 									</div>
-									<div th:each="page : ${#numbers.sequence(boardVO.pageNum,boardVO.pageNum+1)}">
+									<div th:each="page : ${#numbers.sequence(boardVO.pageNum,(boardVO.pageNum+1 <= totalpage ? boardVO.pageNum+1 : totalpage))}">
 										<ul class="second" style="list-style: none; padding-left: 0px; text-align:center; float: left;  margin-left: 5%; box-sizing: border-box;">
 											<li style="width:7%;"><a th:href="@{board(pageNum=${page})}"><strong style="color:bisque;" th:text="${page}"></strong></a></li>
 										</ul>
 									</div>
 									<div class="third" style="width:10%; float:right;  box-sizing: border-box;" th:remove="${boardVO.pageNum < totalpage} ? tag : all">
-										<a th:href="@{board(pageNum=${nextPage})}">
+										<a th:href="@{board(pageNum=${boardVO.pageNum+1})}">
 											<span class="button small" style="padding:0 0.5em 0.5em 0.5em;" th:text="'>'"></span>
 										</a>
 									</div>

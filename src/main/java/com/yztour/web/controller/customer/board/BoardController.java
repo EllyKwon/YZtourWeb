@@ -1,17 +1,19 @@
 package com.yztour.web.controller.customer.board;
 
 import com.yztour.web.model.BoardVO;
+import com.yztour.web.model.FileVO;
 import com.yztour.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping(value = "/board", method ={RequestMethod.POST})
 @RequiredArgsConstructor
 public class BoardController {
 
@@ -27,28 +29,11 @@ public class BoardController {
         model.addAttribute("resultList", resultList);
         model.addAttribute("totalpage",boardVO.getTotalPage());
         model.addAttribute("boardVO",boardVO);
-        model.addAttribute("prevPage",boardVO.getPrevPage());
-        model.addAttribute("nextPage",boardVO.getNextPage());
         model.addAttribute("startPage",boardVO.getStartPage());
         model.addAttribute("endPage",boardVO.getEndPage());
 
         return "board";
-
     }
-
-
-
-//    @GetMapping
-//    public void pagination(BoardVO boardVO, Model model) {
-//
-//        /*현재페이지,전체페이지*/
-//        int total = service.totalCount();
-//        int nowPageNum = (int) Math.ceil(total/10);
-//
-//        model.addAttribute("total",total);
-//        model.addAttribute("nowPageNum",nowPageNum);
-//
-//    }
 
 
     @GetMapping("/write")
@@ -57,28 +42,45 @@ public class BoardController {
         return "write";
     }
 
-    @GetMapping("/detail")
-    public String detail(){
+    @PostMapping("/insert")
+    public String insert(BoardVO boardVO, FileVO fileVO, @RequestPart MultipartFile files) throws IOException {
 
+        service.boardInsert(boardVO);
+        service.fileInsert(boardVO,fileVO,files);
+        return "redirect:/board";
+    }
+
+
+    @GetMapping("/detail")
+    public String detail(BoardVO boardVO, Model model){
+
+        BoardVO detail = service.getDetail(boardVO);
+        BoardVO next = service.getNext(boardVO);
+        BoardVO prev = service.getPrev(boardVO);
+
+
+        model.addAttribute("detail", detail);
+        model.addAttribute("boardVO",boardVO);
+        model.addAttribute("next",next);
+        model.addAttribute("prev",prev);
         return "detail";
     }
 
-    @GetMapping("/search")
-    public String search(){
-
-        return "search";
-    }
 
     @GetMapping("/update")
-    public String update(){
+    public String update(BoardVO boardVO, Model model){
+        BoardVO detail = service.getDetail(boardVO);
+
+        model.addAttribute("detail",detail);
 
         return "update";
     }
 
-    @GetMapping("/delete")
-    public String delete(){
 
-        return "delete";
+    @GetMapping("/delete")
+    public String delete(BoardVO boardVO){
+        service.delete(boardVO);
+        return "redirect:/board";
     }
 
 }

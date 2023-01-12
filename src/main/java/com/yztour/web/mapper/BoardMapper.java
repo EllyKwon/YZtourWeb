@@ -11,8 +11,10 @@ public interface BoardMapper {
     /*검색*/
     ArrayList<BoardVO> getSearchList(BoardVO boardVO);
     ArrayList<CommentVO> getCommentList();
-    ArrayList<FileVO> getFileList();
+    ArrayList<FileVO> getFileList(BoardVO boardVO);
 
+    /*상세페이지*/
+    BoardVO getDetail(BoardVO boardVO);
 
 
     ArrayList<PackageVO> getPackageList();
@@ -21,15 +23,14 @@ public interface BoardMapper {
 
 
     /*삽입*/
-    BoardVO insert(BoardVO boardVO);
+    void boardInsert(BoardVO boardVO);
 
     /*수정*/
-    BoardVO update (BoardVO boardVO);
+    void update (BoardVO boardVO);
 
     /*삭제*/
-    int delete(int id);
+    int delete(BoardVO boardVO);
     int deleteAll(int[] ids);
-
 
 
     /*현재페이지수*/
@@ -39,9 +40,9 @@ public interface BoardMapper {
     int totalCount(BoardVO boardVO);
 
     /*다음페이지,이전페이지*/
-    BoardVO getNext(int id);
+    BoardVO getNext(BoardVO boardVO);
 
-    BoardVO getPrev(int id);
+    BoardVO getPrev(BoardVO boardVO);
 
     /*공개*/
 

@@ -33,8 +33,9 @@
                     <li>
                         <a th:href="@{/board}">고객게시판</a>
                     </li>
-                    <li><a th:href="@{/login}" class="button primary small">로그인</a></li>
-                    <li><a th:href="@{/join}" class="button primary small">회원가입</a></li>
+                    <li><a th:if="@{memberVO.userId==null}" th:text="로그인" th:href="@{/login}" class="button primary small"></a></li>
+                    <li><a th:if="@{memberVO.userId!=null}" th:text="로그아웃" th:href="@{/login}" class="button primary small"></a></li>
+                    <li><a th:if="@{memberVO.userId==null}" th:text="회원가입" th:href="@{/join}" class="button primary small"></a></li>
                 </ul>
             </nav>
         </header>

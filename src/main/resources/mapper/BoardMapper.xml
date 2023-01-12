@@ -4,19 +4,20 @@
 <mapper namespace="com.yztour.web.mapper.BoardMapper">
 
     <select id="getSearchList" parameterType="BoardVO" resultType="BoardVO">
-        SELECT
-              BOARD_ID
-            , TITLE
-            , CONTENT
-            , REGDATE
-            , HIT
-            , PUB_YN
-            , CATEGORY
-            , MEMBER_ID
-            , FILE_ID
-        FROM BOARD
+        SELECT    B.BOARD_ID
+                , B.TITLE
+                , B.CONTENT
+                , M.NAME
+                , B.REGDATE
+                , B.HIT
+                , B.PUB_YN
+                , B.CATEGORY
+                , B.MEMBER_ID
+                , B.FILE_ID
+        FROM BOARD B JOIN MEMBER M
+        ON B.MEMBER_ID = M.MEMBER_ID
         <where>
-            PUB_YN = 'Y'
+            PUB_YN = 'Y' AND DELETE_YN = 'N'
             <if test= "searchCondition eq 'title'">
                 AND TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
             </if>
@@ -25,36 +26,65 @@
             </if>
         </where>
         ORDER BY REGDATE DESC
-        LIMIT #{limit} OFFSET #{offset}
+        LIMIT #{limit} OFFSET #{offset};
     </select>
 
 
-<!--
-    <insert id="" parameterType="">
-        INSERT INTO BOARD ( )
-        VALUES ( )
+    <select id="getDetail" parameterType="BoardVO" resultType="BoardVO">
+        SELECT  B.BOARD_ID
+                , B.TITLE
+                , B.CONTENT
+                , B.REGDATE
+                , M.NAME
+                , B.HIT
+                , B.PUB_YN
+                , B.CATEGORY
+                , B.MEMBER_ID
+                , B.FILE_ID
+        FROM BOARD B JOIN MEMBER M
+        ON B.MEMBER_ID = M.MEMBER_ID
+        WHERE
+            B.PUB_YN = 'Y' AND B.BOARD_ID = #{boardId};
+    </select>
+
+
+    <insert id="boardInsert" parameterType="BoardVO">
+        INSERT INTO BOARD(TITLE, CONTENT, CATEGORY, MEMBER_ID)
+        VALUES
+        (#{title}, #{content}, #{category}, #{memberId});
     </insert>
--->
+
+    <select id="getFileList" parameterType="BoardVO" resultType="FileVO">
+        SELECT
+          FILE_ID
+        , FILE_ORDER
+        , FILE_ORIGINNAME
+        , SIZE
+        FROM FILE
+        WHERE FILE_ID = #{fileId};
+    </select>
+
 
     <!--수정-->
-<!--
-    <update id="" parameterType="Bo">
+    <update id="update" parameterType="BoardVO">
         UPDATE BOARD
         SET
-            <if test="TITLE != NULL"> TITLE=#{TITLE}</if>
-            <if test="CONTENT != NULL"> TITLE=#{CONTENT}</if>
-            <if test="CATEGORY != NULL"> TITLE=#{CATEGORY}</if>
-        WHERE ID = #{ID}
+            <if test="TITLE != NULL"> TITLE = #{title}</if>
+            <if test="CONTENT != NULL"> CONTENT = #{content}</if>
+            <if test="CATEGORY != NULL"> CATEGORY = #{category}</if>
+            <if test="FILEID != NULL"> FILEID = #{file_id}</if>
+            <if test="PUBYN != NULL"> PUBYN = #{pub_yn}</if>
+        WHERE ID = #{boardId};
     </update>
--->
+
 
     <!--삭제-->
-<!--
-    <delete id="">
-        DELETE FROM BOARD
-        WHERE ID = #{ }
-    </delete>
--->
+
+    <update id="delete" parameterType="BoardVO">
+        UPDATE BOARD
+        SET DELETE_YN = 'Y'
+        WHERE BOARD_ID = #{boardId};
+    </update>
 
     <!--일괄삭제-->
 <!--
@@ -64,18 +94,12 @@
     </delete>
 -->
 
-    <!--현재페이지수-->
-
-
-    <!--글번호내림차순-->
-
-
     <!--페이징처리(전체페이지수)-->
     <select id="totalCount" parameterType="BoardVO" resultType="int">
         SELECT COUNT(*)
         FROM BOARD
         <where>
-            PUB_YN = 'Y'
+            PUB_YN = 'Y' AND DELETE_YN = 'N'
             <if test="searchCondition eq 'title'">
                 AND TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
             </if>
@@ -85,24 +109,25 @@
         </where>
     </select>
 
+
     <!--다음글-->
-<!--
-    <select id="getNext" resultType="int">
-        SELECT * FROM BOARD
-        WHERE REGDATE &gt; (SELECT REGDATE FROM NOTICE WHERE ID = #{ID})
-        LIMIT 1
+
+    <select id="getNext" parameterType="BoardVO" resultType="BoardVO">
+        SELECT BOARD_ID, TITLE FROM BOARD
+        WHERE BOARD_ID &gt; #{boardId}
+        LIMIT 1;
     </select>
--->
+
 
     <!--이전글-->
-<!--
-    <select id="getPrev" resultType="int">
-        SELECT * FROM BOARD
-        WHERE REGDATE &lt; (SELECT REGDATE FROM NOTICE WHERE ID=#{ID})
+
+    <select id="getPrev"  parameterType="BoardVO" resultType="BoardVO">
+        SELECT BOARD_ID, TITLE FROM BOARD
+        WHERE BOARD_ID &lt; #{boardId}
         ORDER BY REGDATE DESC
-        LIMIT 1
+        LIMIT 1;
     </select>
--->
+
 
     <!--공개-->
 <!--

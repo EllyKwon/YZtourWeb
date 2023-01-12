@@ -3,6 +3,7 @@ package com.yztour.web.model;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class BoardVO {
@@ -14,9 +15,9 @@ public class BoardVO {
     private int hit;
     private String pubYn;
     private String category;
+    private String fileId;
     private String deleteYn;
     private int memberId;
-    private String fileId;
 
 
     /*검색*/
@@ -31,13 +32,12 @@ public class BoardVO {
     private int totalCount;
     private int totalPage;
     private int displayPageNum=2;
-    private int prevPage;
-    private int nextPage;
     private int startPage;
     private int endPage;
+    private String name;
 
-
-
+    /*첨부파일 정보*/
+    List<FileVO> fileList;
 
     public int getTotalPage() {
         return (int) Math.ceil(totalCount/10.0);
@@ -51,19 +51,27 @@ public class BoardVO {
         return pageNum == 1 ? 0 : ((pageNum-1) * size);
     }
 
-    public int getPrevPage() {
-        return pageNum-1;
-    }
-
-    public int getNextPage() {
-        return pageNum+1;
-    }
-
     public int getStartPage() {
         return (endPage - displayPageNum) + 1;
     }
 
     public int getEndPage() {
         return (startPage + displayPageNum) -1;
+    }
+
+    public String name(MemberVO memberVO) {
+        return memberVO.getName();
+    }
+
+    public int getBoardId() {
+        return boardId;
+    }
+
+    public String getFileId(FileVO fileVO) {
+        return fileVO.getFileId();
+    }
+
+    public List<FileVO> getFileList(FileVO fileVO) {
+        return getFileList();
     }
 }
